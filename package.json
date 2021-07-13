@@ -1,0 +1,22 @@
+{
+  "name": "vuepress-plugin-showvuedemoblock",
+  "main": "src/index.js",
+  "version": "0.1.2",
+  "description": "vuepress中使用的demo展示插件",
+  "author": "zjcomeon",
+  "scripts": {
+    "docs:dev": "vuepress dev docs --no-cache --debug",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "core-js": "^2.6.5",
+    "highlight.js": "^11.0.1",
+    "markdown-it-container": "^3.0.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.1.0",
+    "vue-highlight.js": "^2.2.0",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-demo-code": "^0.6.0"
+  }
+}
