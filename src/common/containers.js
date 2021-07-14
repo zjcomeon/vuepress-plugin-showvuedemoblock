@@ -2,7 +2,7 @@
  * @Author: zj.wang
  * @Date: 2021-07-08 17:04:35
  * @LastEditors: zj.wang
- * @LastEditTime: 2021-07-14 10:31:30
+ * @LastEditTime: 2021-07-14 11:08:46
  * @Description: 
  */
 
@@ -97,8 +97,8 @@ const mdContainer = require('markdown-it-container');
 module.exports = options => {
   // console.log('options', options)
   // options ： .vuepress 下 config.js 的 plugins 配置 options
-  // const { component = 'demo-block' } = options;
-  const { component } = options;
+  const { component = 'demo-block' } = options;
+  // const { component } = options;
   const componentName = component
     // 首字母转小写
     .replace(/^\S/, s => s.toLowerCase())

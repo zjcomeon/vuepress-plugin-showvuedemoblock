@@ -2,11 +2,11 @@
  * @Author: zj.wang
  * @Date: 2021-07-08 16:23:36
  * @LastEditors: zj.wang
- * @LastEditTime: 2021-07-13 17:38:36
+ * @LastEditTime: 2021-07-14 13:45:32
  * @Description: 组件模版
 -->
 <template>
-  <div class="demo-block">
+  <div class="demo-block" :class="!isShow?'hide':''">
     <!-- 示例 -->
     <div class="demo-content">
       <slot name="demo"></slot>
@@ -71,7 +71,6 @@ export default {
       return this.$refs.meta // this.$el.getElementsByClassName("code-meta")[0]
     },
     codeAreaHeight () {
-      console.log(this.$refs.description)
       if (this.$refs.description) {
         return this.$refs.description.clientHeight + this.$refs.code.clientHeight + 20 + 3
       }
@@ -90,11 +89,11 @@ export default {
       const source = this.$slots.source
       this.getSourceCode(source)
       this.changeStyle()
-      console.log(this.langConfig)
     })
     
   },
   methods: {
+    // 获取代码格式化html，script，style
     getSourceCode (source) {
       if (source && source[0]) {
       let code = '';
@@ -134,6 +133,7 @@ export default {
       }
       return content.replace(/<(script|style)[\s\S]+<\/\1>/g, '').trim();
     },
+    // 展开收缩，样式切换
     changeStyle () {
       this.iconClass = this.isShow ? "el-icon-caret-top" : "el-icon-caret-bottom"
       this.codeTextBtn = this.isShow ? this.langConfig['hide-text'] : this.langConfig['show-text']//"隐藏代码" : "显示代码"
@@ -143,8 +143,7 @@ export default {
     goCodepen() {
       // since 2.6.2 use code rather than jsfiddle https://blog.codepen.io/documentation/api/prefill/
       const { script, html, style } = this.codepen;
-      console.log( this.codepen)
-      
+
       const resourcesTpl = '<scr' + 'ipt src="//unpkg.com/vue/dist/vue.js"></scr' + 'ipt>' +
         '\n<scr' + `ipt src="//unpkg.com/element-ui@${ version }/lib/index.js"></scr` + 'ipt>';
         let jsTpl = (script || '').replace(/export default/, 'var Main =').trim();
@@ -219,7 +218,6 @@ export default {
     background-color: #fafafa;
     overflow: hidden;
     transition: height .2s;
-    height: 0;
     p,pre {
       margin: 0;
     }
@@ -256,7 +254,7 @@ export default {
       }
     }
     .demo-control-copy {
-      opacity: 1;
+      // opacity: 1;
       position: absolute;
       right: 10px;
       color: #409eff;
@@ -269,17 +267,27 @@ export default {
     &:hover{
       background: #f9fafc;
       .demo-control-show {
-        // transform: translateX(0px);
+        transform: translateX(-10px);
         color: #409eff;
         animation: moveShowEffect .3s 0s 1 normal forwards;;
       }
       [class^=el-icon-] {
-        transform: translateX(-10px);
+        transform: translateX(-20px);
         color: #409eff;
       }
       .demo-control-copy {
         // animation: moveCopyEffect .1s 0s 1 normal forwards;;
       }
+    }
+  }
+  // 隐藏
+  &.hide {
+    .demo-meta {
+      height: 0;
+    }
+    .demo-control .demo-control-copy ,
+    .demo-control .demo-control-run {
+      display: none;
     }
   }
 }
@@ -290,7 +298,7 @@ export default {
   }
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateX(-10px);
   }
 }
 @keyframes moveCopyEffect {
