@@ -3,4 +3,4 @@ node_modules/
 .temp
 .cache
 dest/
-docs/dist/
+docs/.vuepress/dist/
