@@ -1,7 +1,7 @@
 {
   "name": "vuepress-plugin-showvuedemoblock",
   "main": "src/index.js",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "vuepress中使用的demo展示插件",
   "author": "zjcomeon",
   "scripts": {
