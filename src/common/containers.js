@@ -2,7 +2,7 @@
  * @Author: zj.wang
  * @Date: 2021-07-08 17:04:35
  * @LastEditors: zj.wang
- * @LastEditTime: 2021-07-13 17:42:14
+ * @LastEditTime: 2021-07-14 10:31:30
  * @Description: 
  */
 
@@ -43,7 +43,7 @@ Token 内容
     hidden: false
   },
   Token {
-    type: 'container_demo2_open',
+    type: 'container_vuedemo_open',
     tag: 'div',
     attrs: null,
     map: [ 8, 12 ],
@@ -52,7 +52,7 @@ Token 内容
     children: null,
     content: '',
     markup: ':::',
-    info: ' demo2',
+    info: ' vuedemo',
     meta: null,
     block: true,
     hidden: false
@@ -73,7 +73,7 @@ Token 内容
     hidden: false
   },
   Token {
-    type: 'container_demo2_close',
+    type: 'container_vuedemo_close',
     tag: 'div',
     attrs: null,
     map: null,
@@ -106,15 +106,15 @@ module.exports = options => {
     .replace(/([A-Z])/g, "-$1").toLowerCase();
   // console.log('componentName', componentName)
   return md => {
-    md.use(mdContainer, 'demo2', {
+    md.use(mdContainer, 'vuedemo', {
       // 验证所有 md 文件中使用 ::: 后的名字
       validate(params) {
-        // console.log('params', params, params.trim().match(/^demo2\s*(.*)$/))
-        return params.trim().match(/^demo2\s*(.*)$/);
+        // console.log('params', params, params.trim().match(/^vuedemo\s*(.*)$/))
+        return params.trim().match(/^vuedemo\s*(.*)$/);
       },
       render(tokens, idx) {
-        // m: [ 'demo2', '', index: 0, input: 'demo2', groups: undefined ]
-        const m = tokens[idx].info.trim().match(/^demo2\s*(.*)$/);
+        // m: [ 'vuedemo', '', index: 0, input: 'vuedemo', groups: undefined ]
+        const m = tokens[idx].info.trim().match(/^vuedemo\s*(.*)$/);
         // console.log('tokens', tokens, idx, tokens[idx].nesting, m)
         // 标记 ::: 开始
         if (tokens[idx].nesting === 1) {

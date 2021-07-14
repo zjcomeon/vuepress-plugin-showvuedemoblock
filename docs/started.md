@@ -2,7 +2,7 @@
  * @Author: zj.wang
  * @Date: 2021-07-13 16:45:54
  * @LastEditors: zj.wang
- * @LastEditTime: 2021-07-13 18:00:19
+ * @LastEditTime: 2021-07-14 10:58:22
  * @Description: 
 -->
 # 快速上手
@@ -43,18 +43,20 @@ module.exports = {
 
 ## 使用
 
-::: warning 注意
-为了展示如何编写示例, 用于标记代码部分结束的三点增加了空格分隔，使用时需要将空格去除。
+::: warning 由于代码会被解析，所以使用贴图来表示
+![使用方式截图](~@images/use.png)
 :::
 
-在 Markdown 文件中编写以下代码：
+最终效果如下：
 
-::: demo2 此处放置代码示例的描述信息，支持 `Markdown` 语法，**描述信息只支持单行**
+::: vuedemo 此处放置代码示例的描述信息，支持 `Markdown` 语法，**描述信息只支持单行**
 ```html
 <template>
-  <div class="red-center-text">
-      <p>{{ message }}</p>
-      <input v-model="message" placeholder="Input something..."/>
+  <div class="box">
+    <h3>{{ message }}</h3>
+    <button>HTML按钮</button>
+    <el-button>Element 默认按钮</el-button>
+    <el-button type="primary">Element 主要按钮</el-button>
   </div>
 </template>
 <script>
@@ -67,9 +69,9 @@ export default {
 }
 </script>
 <style>
-.red-center-text { 
-  color: #ff7875;
-  text-align: center;
+.box { 
+  border: 1px dashed #bbb;
+  padding: 10px;
 }
 </style>
 ```

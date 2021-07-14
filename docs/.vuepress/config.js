@@ -2,7 +2,7 @@
  * @Author: zj.wang
  * @Date: 2021-07-05 10:12:49
  * @LastEditors: zj.wang
- * @LastEditTime: 2021-07-13 17:59:44
+ * @LastEditTime: 2021-07-14 10:52:31
  * @Description: 
  */
 const fs = require('fs')
@@ -18,8 +18,8 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@images':  path.resolve(__dirname, './images'),
-        '@styles': path.resolve(__dirname, './styles')
+        '@images':  path.resolve(__dirname, './public/images'),
+        '@styles': path.resolve(__dirname, './public/styles')
       }
     }
   },
@@ -34,11 +34,11 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: 'vuepress-plugin-showvuedemoblock'
+      title: 'Show Vue Demo Block'
     },
     '/en/': {
       lang: 'en-US',
-      title: 'vuepress-plugin-showvuedemoblock'
+      title: 'Show Vue Demo Block'
     },
   },
   themeConfig: {
